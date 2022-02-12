@@ -1,9 +1,11 @@
-# Basic Sample Hardhat Project
+# Wave Portal
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+Simple read/write hardhat contract with a bootstrapped front end that you can say hello to on Rinkeby. (See the deployed contract.)[https://rinkeby.etherscan.io/address/0x27f0c1f598ad04fc6bae122236645d2daaecaa78]
 
-Try running some of the following tasks:
+Or interact with the frontend app:
+https://waveportal-starter-project.hailelagi.repl.co/
 
+tasks:
 ```shell
 npx hardhat accounts
 npx hardhat compile
