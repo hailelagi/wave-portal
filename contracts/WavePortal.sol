@@ -18,7 +18,7 @@ contract WavePortal {
 
     Wave[] waves;
 
-    constructor() {
+    constructor() payable {
         console.log("lol smart contract go vroom!");
     }
 
@@ -28,8 +28,16 @@ contract WavePortal {
 
         waves.push(Wave(msg.sender, _message, block.timestamp));
 
-        // events emit data to txn logs onchain - not accessible to contract
+        // events emit data to txn logs on chain - not accessible to contract
         emit NewWave(msg.sender, block.timestamp, _message);
+
+        uint256 prizeAmount = 0.0001 ether;
+        require(
+            prizeAmount <= address(this).balance,
+            "you're not trying to bankrupt my learning contract are you anon?"
+        );
+        (bool success, ) = (msg.sender).call{value: prizeAmount}("");
+        require(success, "Failed to withdraw from contract.");
     }
 
     function getAllWaves() public view returns(Wave[] memory) {
