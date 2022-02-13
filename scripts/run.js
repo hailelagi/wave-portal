@@ -25,21 +25,34 @@ async function main(){
     await waveTxn.wait();
 
 
-    waveTxn = await waveContract.connect(randomPerson).wave(":0 test twooo!");
-    await waveTxn.wait();
+    let waveTxnTwo = await waveContract.wave("hehehe <3");
+    await waveTxnTwo.wait();
+
+    contractBalance = await hre.ethers.provider.getBalance(waveContract.address);
+
+    console.log(
+        "still going steady, a third of the time",
+        hre.ethers.utils.formatEther(contractBalance)
+    );
+
+    const waveTxnThree = await waveContract.connect(randomPerson).wave(":0 test three!");
+    await waveTxnThree.wait();
+
+    const waveTxnFour = await waveContract.connect(randomPerson).wave(":0 test four!");
+    await waveTxnFour.wait();
 
     contractBalance = await hre.ethers.provider.getBalance(
         waveContract.address
     );
 
     console.log(
-        "Last bal after two tx",
+        "Last bal after all txs",
         hre.ethers.utils.formatEther(contractBalance)
     );
 
     let allWaves = await waveContract.getAllWaves();
 
-    console.log(allWaves);
+    onsole.log(allWaves);
 }
 
 async function runMain() {
