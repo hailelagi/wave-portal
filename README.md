@@ -8,6 +8,9 @@ Simple read/write hardhat contract with a bootstrapped front end that you can sa
 - v0.2 read/write complex data(events, strings, structs):
 (https://rinkeby.etherscan.io/address/0x14c22e9c89b2f85825635ae4a2e04fa9206f8cfb)
 
+- v0.3 working with ether:
+(https://rinkeby.etherscan.io/address/0x08357119bba3ff26c097cc375cd1355cdd75a353)
+
 Or interact with the frontend app:
 https://waveportal-starter-project.hailelagi.repl.co/
 
