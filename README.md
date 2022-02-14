@@ -11,6 +11,9 @@ Simple read/write hardhat contract with a bootstrapped front end that you can sa
 - v0.3 working with ether:
 (https://rinkeby.etherscan.io/address/0x08357119bba3ff26c097cc375cd1355cdd75a353)
 
+- v0.4 rate limits and randomness:
+(https://rinkeby.etherscan.io/address/0xcedf8701c86b295fd5420cef4a200c1472cb33e3)
+
 Or interact with the frontend app:
 https://waveportal-starter-project.hailelagi.repl.co/
 
