@@ -19,6 +19,8 @@ contract WavePortal {
 
     Wave[] waves;
 
+    mapping(address => uint256) public lastWavedAt;
+
     constructor() payable {
         console.log("lol smart contract go vroom!");
 
@@ -26,9 +28,14 @@ contract WavePortal {
     }
 
     function wave(string memory _message) public {
+        require(lastWavedAt[msg.sender] + 15 minutes < block.timestamp,
+        "hasta la vista baby! You've been rate limited muhahah");
+
+        lastWavedAt[msg.sender] = block.timestamp;
         totalWaves += 1;
         console.log("%s ey buddy: %s", msg.sender, _message);
         waves.push(Wave(msg.sender, _message, block.timestamp));
+
         seed = (block.difficulty + block.timestamp + seed) % 100;
 
         // bad on chain random generation.

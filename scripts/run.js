@@ -24,9 +24,13 @@ async function main(){
     let waveTxn = await waveContract.wave("Hi hi test!");
     await waveTxn.wait();
 
-
-    let waveTxnTwo = await waveContract.wave("hehehe <3");
-    await waveTxnTwo.wait();
+    try {
+        let waveTxnTwo = await waveContract.wave("hehehe <3");
+        await waveTxnTwo.wait();
+    } catch (err) {
+        // expected err
+        console.error(err.message)
+    }
 
     contractBalance = await hre.ethers.provider.getBalance(waveContract.address);
 
@@ -35,11 +39,16 @@ async function main(){
         hre.ethers.utils.formatEther(contractBalance)
     );
 
-    const waveTxnThree = await waveContract.connect(randomPerson).wave(":0 test three!");
-    await waveTxnThree.wait();
+    try {
+        const waveTxnThree = await waveContract.connect(randomPerson).wave(":0 test three!");
+        await waveTxnThree.wait();
 
-    const waveTxnFour = await waveContract.connect(randomPerson).wave(":0 test four!");
-    await waveTxnFour.wait();
+        const waveTxnFour = await waveContract.connect(randomPerson).wave(":0 test four!");
+        await waveTxnFour.wait();
+    } catch (err) {
+        console.error((err.message))
+    }
+
 
     contractBalance = await hre.ethers.provider.getBalance(
         waveContract.address
@@ -52,7 +61,7 @@ async function main(){
 
     let allWaves = await waveContract.getAllWaves();
 
-    onsole.log(allWaves);
+    console.log(allWaves);
 }
 
 async function runMain() {
